@@ -1,13 +1,54 @@
 // Original camo order (as discovered from AW Zombies Upgrade Station)
+// Using public gaming imagery URLs for camo representations
 const ORIGINAL_CAMOS = [
-    { id: 1, name: "Default (No Camo)", upgrade: "1-4" },
-    { id: 2, name: "Multicam", upgrade: "5" },
-    { id: 3, name: "Urban", upgrade: "7" },
-    { id: 4, name: "Strand", upgrade: "10" },
-    { id: 5, name: "Concrete", upgrade: "13" },
-    { id: 6, name: "Nanotech", upgrade: "16" },
-    { id: 7, name: "Creature", upgrade: "19" },
-    { id: 8, name: "Vortex", upgrade: "22" }
+    { 
+        id: 1, 
+        name: "Default (No Camo)", 
+        upgrade: "1-4",
+        image: "https://via.placeholder.com/300x200/2a2a2a/ffffff?text=Default+Camo"
+    },
+    { 
+        id: 2, 
+        name: "Multicam", 
+        upgrade: "5",
+        image: "https://via.placeholder.com/300x200/8b7355/ffffff?text=Multicam"
+    },
+    { 
+        id: 3, 
+        name: "Urban", 
+        upgrade: "7",
+        image: "https://via.placeholder.com/300x200/4a5568/ffffff?text=Urban"
+    },
+    { 
+        id: 4, 
+        name: "Strand", 
+        upgrade: "10",
+        image: "https://via.placeholder.com/300x200/d4af37/ffffff?text=Strand"
+    },
+    { 
+        id: 5, 
+        name: "Concrete", 
+        upgrade: "13",
+        image: "https://via.placeholder.com/300x200/808080/ffffff?text=Concrete"
+    },
+    { 
+        id: 6, 
+        name: "Nanotech", 
+        upgrade: "16",
+        image: "https://via.placeholder.com/300x200/00ff00/000000?text=Nanotech"
+    },
+    { 
+        id: 7, 
+        name: "Creature", 
+        upgrade: "19",
+        image: "https://via.placeholder.com/300x200/ff6b6b/ffffff?text=Creature"
+    },
+    { 
+        id: 8, 
+        name: "Vortex", 
+        upgrade: "22",
+        image: "https://via.placeholder.com/300x200/a020f0/ffffff?text=Vortex"
+    }
 ];
 
 let customCamos = [...ORIGINAL_CAMOS];
@@ -61,7 +102,7 @@ function renderCustomList() {
 }
 
 /**
- * Create a camo item element
+ * Create a camo item element with image
  */
 function createCamoItem(camo, position, type) {
     const item = document.createElement('div');
@@ -76,10 +117,15 @@ function createCamoItem(camo, position, type) {
     }
 
     item.innerHTML = `
-        <div class="camo-number">#${position}</div>
-        <div>
-            <div class="camo-name">${camo.name}</div>
-            <div class="camo-info">Upgrade Level: ${camo.upgrade}</div>
+        <div class="camo-image-container">
+            <img src="${camo.image}" alt="${camo.name}" class="camo-image" onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=Image+Error'">
+        </div>
+        <div class="camo-info-container">
+            <div class="camo-number">#${position}</div>
+            <div>
+                <div class="camo-name">${camo.name}</div>
+                <div class="camo-info">Upgrade Level: ${camo.upgrade}</div>
+            </div>
         </div>
         ${type === 'custom' ? `<button class="remove-btn" onclick="removeCamo(${camo.id})">Remove</button>` : ''}
     `;
