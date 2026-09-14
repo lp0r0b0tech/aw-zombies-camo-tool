@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AW Zombies Camo Reordering Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧟 Advanced Warfare Exo Zombies Camo Tool</h1>
+            <p>Customize and reorder your camo progression</p>
+        </header>
+
+        <div class="controls">
+            <button id="resetBtn" class="btn btn-danger">Reset to Original</button>
+            <button id="exportBtn" class="btn btn-success">Export Custom Order</button>
+            <button id="importBtn" class="btn btn-info">Import Custom Order</button>
+            <input type="file" id="fileInput" accept=".json" style="display: none;">
+        </div>
+
+        <div class="content">
+            <div class="column">
+                <h2>Original Order</h2>
+                <div id="originalList" class="camo-list original-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="column">
+                <h2>Your Custom Order</h2>
+                <p class="subtitle">Drag camos here to reorder</p>
+                <div id="customList" class="camo-list custom-list" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison">
+            <h3>📊 Comparison</h3>
+            <div id="comparisonResult" class="comparison-result">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
