@@ -114,8 +114,8 @@ header p {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     padding: 20px;
-    min-height: 500px;
-    max-height: 700px;
+    min-height: 600px;
+    max-height: 900px;
     overflow-y: auto;
     border: 2px solid rgba(255, 255, 255, 0.1);
 }
@@ -150,15 +150,15 @@ header p {
 .camo-item {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
     display: flex;
-    align-items: center;
-    gap: 15px;
+    gap: 12px;
     cursor: grab;
     transition: all 0.2s ease;
     user-select: none;
+    overflow: hidden;
 }
 
 .camo-item:hover {
@@ -177,26 +177,63 @@ header p {
     border-color: #27ae60;
 }
 
+/* Image Container */
+.camo-image-container {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Info Container */
+.camo-info-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
 .camo-number {
     font-weight: 700;
     font-size: 1.1em;
     color: #2ecc71;
-    min-width: 40px;
+    min-width: 45px;
     background: rgba(46, 204, 113, 0.2);
-    padding: 5px 10px;
+    padding: 6px 10px;
     border-radius: 4px;
     text-align: center;
+    flex-shrink: 0;
+}
+
+.camo-details {
+    flex: 1;
+    min-width: 0;
 }
 
 .camo-name {
-    flex: 1;
-    font-size: 1.05em;
-    font-weight: 500;
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 3px;
 }
 
 .camo-info {
-    font-size: 0.85em;
-    color: #bbb;
+    font-size: 0.8em;
+    color: #aaa;
 }
 
 .remove-btn {
@@ -206,8 +243,11 @@ header p {
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 0.85em;
+    font-weight: 600;
     transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .remove-btn:hover {
@@ -230,7 +270,7 @@ header p {
 
 .comparison-result {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
@@ -261,11 +301,13 @@ header p {
     padding: 15px;
     border-radius: 5px;
     margin-top: 15px;
+    grid-column: 1 / -1;
 }
 
 .changes-list h4 {
     margin-bottom: 10px;
     color: #e74c3c;
+    font-size: 1em;
 }
 
 .change-item {
@@ -306,13 +348,35 @@ header p {
         width: 100%;
     }
 
-    .camo-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .comparison-result {
         grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .camo-list {
+        min-height: 400px;
+    }
+
+    .camo-image-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .camo-number {
+        font-size: 0.9em;
+        min-width: 40px;
+        padding: 5px 8px;
+    }
+
+    .camo-name {
+        font-size: 0.95em;
+    }
+
+    .camo-info {
+        font-size: 0.75em;
     }
 }
 
